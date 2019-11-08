@@ -1,6 +1,8 @@
 package com.assesment5;
 
 
+import java.util.Scanner;
+
 import com.assesment5.dao.*;
 import com.assesment5.modal.*;
 import com.assesment5.util.*;
@@ -64,9 +66,9 @@ public class Main {
                Product p2 = dao.findOne(uName);
          
                System.out.println("Enter Product Name");
-              p2.setName(sc.next()); 
+              p2.setPrname(sc.next()); 
                System.out.println("Enter Product Description");
-               p2.setDescription(sc.next());
+               p2.setDisc(sc.next());
                System.out.println("Enter price");
                p2.setPrice(sc.nextInt());
                sc.nextLine();
