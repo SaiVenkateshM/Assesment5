@@ -34,4 +34,10 @@ public void deleteProduct(Product product) {
 	em.getTransaction().begin();
 	em.remove(em.contains(product) ? product : em.merge(product));
 }
+public Product findOne(String name) {
+	EntityManager em =  HibernateUtil.getEntityManagerFactory().createEntityManager();
+	Product p = em.createQuery("Select p from Product p where p.name = :name",Product.class).setParameter("name", name).getSingleResult();
+return p;
+
+}
 }

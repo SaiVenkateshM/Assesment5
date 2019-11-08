@@ -23,8 +23,8 @@ public class Main {
     int option = 0;
     do {
            System.out.println("1.Add Products");
-           System.out.println("3.Delete a product");
-           System.out.println("4.Update Product");
+           System.out.println("2.Delete a product");
+           System.out.println("3.Update Product");
            System.out.println("0.Exit");
            
            System.out.println("Select an option");
@@ -46,16 +46,34 @@ public class Main {
                System.out.println("Enter Quantity");
                int quan = sc.nextInt();
                Product p = new Product(pName,pDesc,price,quan);
-               dao.
+               dao.addProduct(p);
+               
                  break;
+          
            case 2:
-                 m.view();
+               System.out.println("Enter name of product to delete");
+               String dName = sc.next();
+               Product p1 = dao.findOne(dName);
+               dao.deleteProduct(p1);
+
+               
                  break;
            case 3:
-                 m.delete();
-                 break;
-           case 4:
-                 m.update();
+               System.out.println("Enter name of the product to update");
+               String uName = sc.next();
+               Product p2 = dao.findOne(uName);
+         
+               System.out.println("Enter Product Name");
+              p2.setName(sc.next()); 
+               System.out.println("Enter Product Description");
+               p2.setDescription(sc.next());
+               System.out.println("Enter price");
+               p2.setPrice(sc.nextInt());
+               sc.nextLine();
+               System.out.println("Enter Quantity");
+               p2.setQuantity(sc.nextInt());
+               dao.updateProduct(p2);
+
                  break;
            case 0:
                  option = -1;
@@ -67,6 +85,5 @@ public class Main {
 }
 
 	}
-
 
 
